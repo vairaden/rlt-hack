@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#0450F2",
+      },
+    },
   },
   daisyui: {
     themes: [
@@ -12,7 +16,7 @@ export default {
           secondary: "#66e28d",
           accent: "#ef04e7",
           neutral: "#0450F2",
-          "base-100": "#FFF",
+          "base-100": "#FAFCFF",
           info: "#AAD9E9",
           success: "#1F7A5D",
           warning: "#FBC628",

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && rm ./dist/mockServiceWorker.js",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
@@ -13,6 +13,7 @@
     "@sveltejs/vite-plugin-svelte": "^2.0.3",
     "@tsconfig/svelte": "^3.0.0",
     "autoprefixer": "^10.4.14",
+    "msw": "^1.2.1",
     "postcss": "^8.4.21",
     "svelte": "^3.55.1",
     "svelte-check": "^2.10.3",
@@ -22,7 +23,12 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "chart.js": "^4.2.1",
+    "clsx": "^1.2.1",
     "daisyui": "^2.51.5",
     "svelte-spa-router": "^3.3.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
