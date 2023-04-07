@@ -1,14 +1,7 @@
-<script lang="ts">
-  async function getData() {
-    const res = await fetch("/data");
-    return await res.json();
-  }
-
-  let data = getData();
+<script>
+  import Search from "../components/Search.svelte";
 </script>
 
-{#await data}
-  <p>Loading</p>
-{:then res}
-  <p>{res.data}</p>
-{/await}
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+  <Search />
+</div>

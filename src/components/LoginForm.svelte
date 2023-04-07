@@ -16,16 +16,16 @@
 
     if (res.status === 200) {
       user.set({ username: login });
-      console.log("set");
       pop();
     }
   }
 </script>
 
 <form
-  class="card w-64 bg-gray-50 p-2 shadow-md"
+  class="card w-[24rem] bg-gray-50 p-8 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
+  <h1 class="text-5xl text-center">Вход</h1>
   <div class="form-control">
     <label for="login" class="label">
       <span class="label-text"> ИНН </span>
@@ -50,5 +50,7 @@
       bind:value={password}
     />
   </div>
-  <button type="submit" class="btn">Войти</button>
+  <a href="#/restore" class="link">Восстановить пароль</a>
+  <button type="submit" class="btn my-4">Войти</button>
+  <a href="#/register" class="link text-center">Зарегистрироваться</a>
 </form>

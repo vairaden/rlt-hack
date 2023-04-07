@@ -22,7 +22,8 @@
 
 <header class="fixed top-0 left-0 bg-white w-full">
   <nav class="navbar">
-    <div class="tabs navbar-start">
+    <div class="navbar-start">Logo</div>
+    <div class="tabs navbar-center">
       {#each routes as route}
         <a
           class={clsx("tab tab-bordered", {
@@ -32,14 +33,11 @@
         >
       {/each}
     </div>
-    <div class="navbar-center">
-      <input class="input input-bordered" />
-    </div>
     <div class="navbar-end">
       {#if $user}
-        <button class="btn" on:click={handleLogout}>Выйти</button>
+        <button class="btn btn-ghost" on:click={handleLogout}>Выйти</button>
       {:else}
-        <a class="btn" href="#/login">Войти</a>
+        <a class="btn btn-ghost" href="#/login">Войти</a>
       {/if}
     </div>
   </nav>
