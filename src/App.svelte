@@ -49,8 +49,10 @@
 {/if}
 
 <style>
-  :global(html) {
+  :global(html, body) {
     font-family: "Exo 2", sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   main {
     height: max(1080px, 100vh - 4rem);
