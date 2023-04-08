@@ -1,24 +1,19 @@
 <script>
   import { push } from "svelte-spa-router";
-  import { user } from "../stores/user";
+  import { user } from "../../stores/user";
   import clsx from "clsx";
+  import { register } from "../../api";
 
-  let login = "";
+  let username = "";
   let password = "";
   let repeatPassword = "";
   $: matchError = password && repeatPassword && password !== repeatPassword;
 
   async function handleSubmit() {
-    const res = await fetch("/register", {
-      method: "post",
-      body: JSON.stringify({
-        login,
-        password,
-      }),
-    });
+    const res = await register(username, password);
 
     if (res.status === 200) {
-      user.set({ username: login });
+      user.set({ username });
       push("#/");
     }
   }
@@ -30,15 +25,15 @@
 >
   <h1 class="text-5xl text-center">Регистрация</h1>
   <div class="form-control">
-    <label for="login" class="label">
+    <label for="username" class="label">
       <span class="label-text"> ИНН </span>
     </label>
     <input
-      id="login"
+      id="username"
       type="text"
       autocomplete="username"
       class="input input-bordered"
-      bind:value={login}
+      bind:value={username}
     />
   </div>
   <div class="form-control">

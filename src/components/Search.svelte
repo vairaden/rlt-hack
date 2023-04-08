@@ -1,17 +1,12 @@
 <script lang="ts">
   import { push } from "svelte-spa-router";
+  import { search } from "../api";
 
   let query = "";
 
   async function handleSubmit() {
-    const res = await fetch("/search", {
-      method: "post",
-      body: JSON.stringify({
-        query,
-      }),
-    });
+    const res = await search(query);
     const data = await res.json();
-
     push("#/details/" + data.id);
   }
 </script>

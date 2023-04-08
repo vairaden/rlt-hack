@@ -1,16 +1,7 @@
 import { rest, setupWorker } from "msw";
+import companies from "./data.json";
 
 const handlers = [
-  rest.get("/data", (req, res, ctx) => {
-    return res(
-      ctx.delay(1000),
-      ctx.status(200),
-      ctx.json({
-        data: "kek",
-      })
-    );
-  }),
-
   rest.post("/login", async (req, res, ctx) => {
     const body = await req.json();
 
@@ -24,9 +15,14 @@ const handlers = [
   }),
 
   rest.post("/search", async (req, res, ctx) => {
-    const body = await req.json();
+    const inn = req.params.inn as string;
+    const data = companies.find((company) => company.inn === parseInt(inn));
 
-    return res(ctx.delay(1000), ctx.status(200), ctx.json({ id: 111 }));
+    if (data) {
+      return res(ctx.delay(1000), ctx.status(200), ctx.json({ inn: data.inn }));
+    } else {
+      return res(ctx.delay(1000), ctx.status(404));
+    }
   }),
 
   rest.get("/details", async (req, res, ctx) => {

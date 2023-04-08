@@ -13,7 +13,7 @@
     push("#/login");
   }
 
-  let routes = {
+  const routes = {
     "/": wrap({
       asyncComponent: () => import("./pages/Home.svelte"),
     }),

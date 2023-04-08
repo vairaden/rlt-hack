@@ -12,17 +12,11 @@
     Title,
     Tooltip,
   } from "chart.js";
+  import { getDetails } from "../api";
 
   export let params: { id: number };
   let chartCanvas;
   let data: { month: string; count: number }[];
-
-  async function getData(id: number) {
-    const res = await fetch(
-      "/details" + "?" + new URLSearchParams({ id: id.toString() })
-    );
-    data = await res.json();
-  }
 
   onMount(async () => {
     Chart.register(
@@ -37,7 +31,8 @@
       Tooltip
     );
 
-    await getData(params.id);
+    const res = await getDetails(params.id);
+    data = await res.json();
 
     new Chart(chartCanvas.getContext("2d"), {
       type: "line",

@@ -1,21 +1,16 @@
 <script>
   import { pop } from "svelte-spa-router";
   import { user } from "../stores/user";
+  import { login } from "../api";
 
-  let login = "";
+  let username = "";
   let password = "";
 
   async function handleSubmit() {
-    const res = await fetch("/login", {
-      method: "post",
-      body: JSON.stringify({
-        login,
-        password,
-      }),
-    });
+    const res = await login(username, password);
 
     if (res.status === 200) {
-      user.set({ username: login });
+      user.set({ username });
       pop();
     }
   }
@@ -27,15 +22,15 @@
 >
   <h1 class="text-5xl text-center">Вход</h1>
   <div class="form-control">
-    <label for="login" class="label">
+    <label for="username" class="label">
       <span class="label-text"> ИНН </span>
     </label>
     <input
-      id="login"
+      id="username"
       type="text"
       autocomplete="username"
       class="input input-bordered"
-      bind:value={login}
+      bind:value={username}
     />
   </div>
   <div class="form-control">
@@ -50,7 +45,7 @@
       bind:value={password}
     />
   </div>
-  <a href="#/login" class="link">Восстановить пароль</a>
+  <a href="#/username" class="link">Восстановить пароль</a>
   <button type="submit" class="btn my-4">Войти</button>
   <a href="#/register" class="link text-center">Зарегистрироваться</a>
 </form>
