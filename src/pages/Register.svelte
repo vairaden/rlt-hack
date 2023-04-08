@@ -14,7 +14,7 @@
 
   $: if (step === 4) {
     step = 1;
-    register(inn, password);
+    // register(inn, password);
     push("#/");
   }
 </script>

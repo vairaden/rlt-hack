@@ -11,7 +11,7 @@
 </script>
 
 <form
-  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
+  class="card w-[28rem] bg-white p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
   <h1 class="text-5xl text-center mb-4">Регистрация</h1>
@@ -23,7 +23,7 @@
       id="inn"
       type="text"
       placeholder="Введите ИНН"
-      class="input input-bordered"
+      class="input input-bordered bg-white"
       bind:value={inn}
     />
   </div>
@@ -35,7 +35,7 @@
       placeholder="Введите ваше ФИО"
       id="name"
       type="name"
-      class="input input-bordered"
+      class="input input-bordered bg-white"
       bind:value={name}
     />
   </div>

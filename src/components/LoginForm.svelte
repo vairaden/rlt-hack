@@ -17,7 +17,7 @@
 </script>
 
 <form
-  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
+  class="card w-[28rem] bg-white p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
   <h1 class="text-5xl text-center mb-4">Вход</h1>
@@ -29,7 +29,8 @@
       id="username"
       type="text"
       autocomplete="username"
-      class="input input-bordered"
+      placeholder="Введите ИНН"
+      class="input input-bordered bg-white"
       bind:value={username}
     />
   </div>
@@ -41,7 +42,8 @@
       id="password"
       type="password"
       autocomplete="current-password"
-      class="input input-bordered"
+      placeholder="Введите пароль"
+      class="input input-bordered bg-white"
       bind:value={password}
     />
   </div>

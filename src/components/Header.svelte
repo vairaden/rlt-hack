@@ -103,7 +103,7 @@
     <div class="tabs navbar-center">
       {#each routes as route}
         <a
-          class={clsx("tab tab-bordered", {
+          class={clsx("tab tab-bordered text-[16px]", {
             "tab-active": $location === route.href,
           })}
           href={"#" + route.href}>{route.text}</a

@@ -13,11 +13,15 @@
 </script>
 
 <form
-  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
+  class="card w-[28rem] bg-white p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
   <h1 class="text-5xl text-center mb-4">Регистрация</h1>
   <div class="form-control">
+    <label style="display: none;">
+      ИНН
+      <input type="text" autocomplete="username" />
+    </label>
     <label for="password" class="label">
       <span class="label-text"> Пароль </span>
     </label>
@@ -25,19 +29,21 @@
       id="password"
       type="password"
       autocomplete="current-password"
-      class="input input-bordered"
+      placeholder="Введите пароль"
+      class="input input-bordered bg-white"
       bind:value={password}
     />
   </div>
   <div class="form-control">
-    <label for="password" class="label">
+    <label for="repeatPassword" class="label">
       <span class="label-text"> Снова пароль </span>
     </label>
     <input
-      id="password"
+      id="repeatPassword"
       type="password"
       autocomplete="current-password"
-      class={clsx("input input-bordered", {
+      placeholder="Повторите пароль"
+      class={clsx("input input-bordered bg-white", {
         "input-error": matchError,
       })}
       bind:value={repeatPassword}

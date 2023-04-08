@@ -1,16 +1,26 @@
 <script lang="ts">
+  import clsx from "clsx";
   import { push } from "svelte-spa-router";
-  import { search } from "../api";
 
   let query = "";
+  let inputError: string | null = null;
 
   async function handleSubmit() {
     // const res = await search(query);
     // const data = await res.json();
+    if (query === "") {
+      inputError = "Введите данные";
+      return;
+    }
     push("#/details/" + query);
   }
 </script>
 
+{#if inputError}
+  <span class="ml-16 text-error">
+    {inputError}
+  </span>
+{/if}
 <form
   on:submit|preventDefault={handleSubmit}
   class="flex flex-col items-center w-[80vw]"
@@ -47,9 +57,12 @@
     <input
       id="query"
       type="text"
-      class="input rounded-none w-full bg-white"
+      class={clsx("input rounded-none w-full bg-white", {
+        "input-error": inputError,
+      })}
       placeholder="Искать по названию, адресу, руководителю, учредителям, ОРГН и ИНН"
       bind:value={query}
+      on:change={() => (inputError = null)}
     />
     <span class="dropdown dropdown-bottom flex mr-8">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -84,5 +97,21 @@
       </ul>
     </span>
   </div>
-  <button class="btn m-8">Найти контрагента</button>
+  <button class="btn h-64 w-64 mt-10 rounded-full flex flex-col">
+    <svg
+      width="33"
+      height="32"
+      viewBox="0 0 33 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 16H31.5M31.5 16L16.5 1M31.5 16L16.5 31"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+    <span class="text-white mt-5"> Найти контрагента </span>
+  </button>
 </form>

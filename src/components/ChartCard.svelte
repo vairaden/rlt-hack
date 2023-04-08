@@ -65,6 +65,13 @@
   });
 </script>
 
-<div class={"card shadow-md p-4 " + className}>
+<div class={"card p-4 " + className}>
   <canvas bind:this={chartCanvas} />
 </div>
+
+<style>
+  .card {
+    box-shadow: 0px 8px 24px -4px rgba(102, 115, 128, 0.1);
+    background-color: white;
+  }
+</style>
