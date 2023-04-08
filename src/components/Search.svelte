@@ -60,7 +60,7 @@
       class={clsx("input rounded-none w-full bg-white", {
         "input-error": inputError,
       })}
-      placeholder="Искать по названию, адресу, руководителю, учредителям, ОРГН и ИНН"
+      placeholder="Искать ОРГН или ИНН"
       bind:value={query}
       on:change={() => (inputError = null)}
     />
@@ -114,4 +114,9 @@
     </svg>
     <span class="text-white mt-5"> Найти контрагента </span>
   </button>
+  <img
+    class="absolute -translate-x-[3%] -translate-y-[10%] -z-10"
+    src="search-effect.png"
+    alt="Search effect"
+  />
 </form>

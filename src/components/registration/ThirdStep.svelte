@@ -13,7 +13,7 @@
 </script>
 
 <form
-  class="card w-[28rem] bg-white p-12 my-4 shadow-md"
+  class="card w-[28rem] bg-white p-12 my-4 shadow-sm"
   on:submit|preventDefault={handleSubmit}
 >
   <h1 class="text-5xl text-center mb-4">Регистрация</h1>

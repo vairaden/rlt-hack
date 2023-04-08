@@ -43,7 +43,7 @@
 {#if ready}
   <Header />
   <div class="pt-16 min-h-screen flex flex-col justify-between">
-    <main class="p-4">
+    <main class="p-4 max-w-[1440px] mx-auto">
       <Router {routes} on:conditionsFailed={conditionsFailed} />
     </main>
     <Footer />
