@@ -1,8 +1,4 @@
 <script>
-  import { push } from "svelte-spa-router";
-  import { user } from "../../stores/user";
-  import clsx from "clsx";
-  import { register } from "../../api";
   import { createEventDispatcher } from "svelte";
 
   export let position = "";
@@ -15,13 +11,13 @@
 </script>
 
 <form
-  class="card w-[24rem] bg-gray-50 p-8 shadow-md"
+  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
-  <h1 class="text-5xl text-center">Регистрация</h1>
+  <h1 class="text-5xl text-center mb-4">Регистрация</h1>
   <div class="form-control">
     <label for="username" class="label">
-      <span class="label-text"> ИНН </span>
+      <span class="label-text"> Должность </span>
     </label>
     <input
       id="username"
@@ -33,15 +29,18 @@
   </div>
   <div class="form-control">
     <label for="password" class="label">
-      <span class="label-text"> Пароль </span>
+      <span class="label-text"> Трудовая книжка </span>
     </label>
     <input
       id="password"
       type="file"
       autocomplete="current-password"
-      class="input input-bordered"
+      class="file-input file-input-bordered"
       bind:value={document}
     />
   </div>
-  <button type="submit" class="btn my-2">Зарегистрироваться</button>
+  <button type="submit" class="btn my-4">Далее</button>
 </form>
+<a href="#/login" class="text-primary block text-center my-8"
+  >У меня уже есть профиль</a
+>

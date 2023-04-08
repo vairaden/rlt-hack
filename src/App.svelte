@@ -19,7 +19,7 @@
     }),
     "/details/:inn": wrap({
       asyncComponent: () => import("./pages/Details.svelte"),
-      conditions: [() => $user !== null],
+      // conditions: [() => $user !== null],
     }),
     "/login": wrap({
       asyncComponent: () => import("./pages/Login.svelte"),
@@ -49,3 +49,9 @@
     <Footer />
   </div>
 {/if}
+
+<style>
+  :global(html) {
+    font-family: "Exo 2", sans-serif;
+  }
+</style>

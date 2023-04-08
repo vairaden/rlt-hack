@@ -34,7 +34,7 @@
 {#await resPromise}
   <p>Loading</p>
 {:then { data }}
-  <h1 class="text-center text-[56px] my-6">{data.name}</h1>
+  <h1 class="text-center text-[56px] mb-6">{data.name}</h1>
   <div class="grid grid-cols-6 gap-3">
     <div class="card p-4 shadow-md col-span-3">
       <ul>
@@ -64,15 +64,15 @@
         </li>
       </ul>
     </div>
-    <div class="card p-4 shadow-md col-span-3">
+    <div class="card p-4 shadow-md col-span-3 grid grid-cols-2">
       <div>
-        <div>Генеральный директор:</div>
-        <div>
+        <div class="text-textGrey">Генеральный директор:</div>
+        <div class="text-primary">
           {data.ceo}
         </div>
       </div>
       <div>
-        <div>Виды деятельности</div>
+        <div class="text-textGrey">Виды деятельности</div>
         <div>
           {#each data.okved as okved}
             {okved.description} - {okved.code}

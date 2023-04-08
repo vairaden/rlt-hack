@@ -1,8 +1,5 @@
 <script>
-  import { push } from "svelte-spa-router";
-  import { user } from "../../stores/user";
   import clsx from "clsx";
-  import { register } from "../../api";
   import { createEventDispatcher } from "svelte";
 
   export let password = "";
@@ -16,10 +13,10 @@
 </script>
 
 <form
-  class="card w-[24rem] bg-gray-50 p-8 shadow-md"
+  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
-  <h1 class="text-5xl text-center">Регистрация</h1>
+  <h1 class="text-5xl text-center mb-4">Регистрация</h1>
   <div class="form-control">
     <label for="password" class="label">
       <span class="label-text"> Пароль </span>
@@ -34,7 +31,7 @@
   </div>
   <div class="form-control">
     <label for="password" class="label">
-      <span class="label-text"> Повторите пароль </span>
+      <span class="label-text"> Снова пароль </span>
     </label>
     <input
       id="password"
@@ -48,9 +45,10 @@
   </div>
   {#if matchError}
     <span class="label-text text-error"> Пароли не совпадают </span>
-  {:else}
-    <span class="h-5" />
   {/if}
 
-  <button type="submit" class="btn my-2">Зарегистрироваться</button>
+  <button type="submit" class="btn my-4">Далее</button>
 </form>
+<a href="#/login" class="text-primary block text-center my-8"
+  >У меня уже есть профиль</a
+>

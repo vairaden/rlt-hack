@@ -17,10 +17,10 @@
 </script>
 
 <form
-  class="card w-[24rem] bg-gray-50 p-8 shadow-md"
+  class="card w-[28rem] bg-gray-50 p-12 my-4 shadow-md"
   on:submit|preventDefault={handleSubmit}
 >
-  <h1 class="text-5xl text-center">Вход</h1>
+  <h1 class="text-5xl text-center mb-4">Вход</h1>
   <div class="form-control">
     <label for="username" class="label">
       <span class="label-text"> ИНН </span>
@@ -45,7 +45,9 @@
       bind:value={password}
     />
   </div>
-  <a href="#/username" class="link">Восстановить пароль</a>
+  <a href="#/login" class="text-primary">Восстановить пароль</a>
   <button type="submit" class="btn my-4">Войти</button>
-  <a href="#/register" class="link text-center">Зарегистрироваться</a>
 </form>
+<a href="#/register" class="text-primary block text-center my-8"
+  >Зарегистрироваться</a
+>
