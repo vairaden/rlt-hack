@@ -1,21 +1,12 @@
 <script>
-  import { push } from "svelte-spa-router";
-  import { user } from "../../stores/user";
-  import clsx from "clsx";
-  import { register } from "../../api";
+  import { createEventDispatcher } from "svelte";
 
-  let username = "";
-  let password = "";
-  let repeatPassword = "";
-  $: matchError = password && repeatPassword && password !== repeatPassword;
+  export let inn = "";
+  export let name = "";
 
-  async function handleSubmit() {
-    const res = await register(username, password);
-
-    if (res.status === 200) {
-      user.set({ username });
-      push("#/");
-    }
+  const dispatch = createEventDispatcher();
+  function handleSubmit() {
+    dispatch("filled");
   }
 </script>
 
@@ -25,48 +16,22 @@
 >
   <h1 class="text-5xl text-center">Регистрация</h1>
   <div class="form-control">
-    <label for="username" class="label">
+    <label for="inn" class="label">
       <span class="label-text"> ИНН </span>
     </label>
-    <input
-      id="username"
-      type="text"
-      autocomplete="username"
-      class="input input-bordered"
-      bind:value={username}
-    />
+    <input id="inn" type="text" class="input input-bordered" bind:value={inn} />
   </div>
   <div class="form-control">
-    <label for="password" class="label">
+    <label for="name" class="label">
       <span class="label-text"> Пароль </span>
     </label>
     <input
-      id="password"
-      type="password"
-      autocomplete="current-password"
+      id="name"
+      type="name"
       class="input input-bordered"
-      bind:value={password}
+      bind:value={name}
     />
   </div>
-  <div class="form-control">
-    <label for="password" class="label">
-      <span class="label-text"> Повторите пароль </span>
-    </label>
-    <input
-      id="password"
-      type="password"
-      autocomplete="current-password"
-      class={clsx("input input-bordered", {
-        "input-error": matchError,
-      })}
-      bind:value={repeatPassword}
-    />
-  </div>
-  {#if matchError}
-    <span class="label-text text-error"> Пароли не совпадают </span>
-  {:else}
-    <span class="h-5" />
-  {/if}
 
   <button type="submit" class="btn my-2">Зарегистрироваться</button>
 </form>

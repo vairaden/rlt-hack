@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
   import { user } from "./stores/user";
 
-  const USE_MSW = true;
+  const USE_MSW = false;
 
   function conditionsFailed() {
     push("#/login");
@@ -17,7 +17,7 @@
     "/": wrap({
       asyncComponent: () => import("./pages/Home.svelte"),
     }),
-    "/details/:id": wrap({
+    "/details/:inn": wrap({
       asyncComponent: () => import("./pages/Details.svelte"),
       conditions: [() => $user !== null],
     }),

@@ -5,9 +5,9 @@
   let query = "";
 
   async function handleSubmit() {
-    const res = await search(query);
-    const data = await res.json();
-    push("#/details/" + data.id);
+    // const res = await search(query);
+    // const data = await res.json();
+    push("#/details/" + query);
   }
 </script>
 

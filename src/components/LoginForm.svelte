@@ -7,12 +7,12 @@
   let password = "";
 
   async function handleSubmit() {
-    const res = await login(username, password);
+    // const res = await login(username, password);
 
-    if (res.status === 200) {
-      user.set({ username });
-      pop();
-    }
+    // if (res.status === 200) {
+    user.set({ username: "vai" });
+    pop();
+    // }
   }
 </script>
 
