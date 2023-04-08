@@ -2,8 +2,17 @@
   import { push } from "svelte-spa-router";
 
   let query = "";
-  function handleSubmit() {
-    push("/details");
+
+  async function handleSubmit() {
+    const res = await fetch("/search", {
+      method: "post",
+      body: JSON.stringify({
+        query,
+      }),
+    });
+    const data = await res.json();
+
+    push("#/details/" + data.id);
   }
 </script>
 
@@ -12,7 +21,7 @@
   class="flex flex-col items-center w-[80vw]"
 >
   <div
-    class="w-full bg-white form-control border rounded-lg flex flex-row items-center"
+    class="w-full text-textGrey bg-white form-control border rounded-lg flex flex-row items-center"
   >
     <label for="query" class="mx-4">
       <svg
@@ -43,11 +52,11 @@
     <input
       id="query"
       type="text"
-      class="input rounded-none w-full"
+      class="input rounded-none w-full bg-white"
       placeholder="Искать по названию, адресу, руководителю, учредителям, ОРГН и ИНН"
       bind:value={query}
     />
-    <span class="dropdown flex mr-8">
+    <span class="dropdown dropdown-bottom flex mr-8">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
       <!-- svelte-ignore a11y-label-has-associated-control -->
       <label tabindex="0" class="btn btn-ghost whitespace-nowrap">

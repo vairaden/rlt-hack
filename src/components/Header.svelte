@@ -6,11 +6,7 @@
   const routes = [
     {
       href: "/",
-      text: "Home",
-    },
-    {
-      href: "/details",
-      text: "Details",
+      text: "Поиск",
     },
   ];
 
@@ -20,7 +16,7 @@
   }
 </script>
 
-<header class="fixed top-0 left-0 bg-white w-full">
+<header class="fixed top-0 left-0 bg-white shadow-sm w-full">
   <nav class="navbar">
     <div class="navbar-start">Logo</div>
     <div class="tabs navbar-center">

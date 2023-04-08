@@ -13,21 +13,16 @@
     Tooltip,
   } from "chart.js";
 
+  export let params: { id: number };
   let chartCanvas;
-  const data = [
-    { month: "янв", count: 10 },
-    { month: "фев", count: 20 },
-    { month: "мар", count: 15 },
-    { month: "апр", count: 25 },
-    { month: "май", count: 22 },
-    { month: "июн", count: 30 },
-    { month: "июл", count: 28 },
-    { month: "авг", count: 12 },
-    { month: "сен", count: 20 },
-    { month: "окт", count: 29 },
-    { month: "ноя", count: 17 },
-    { month: "дек", count: 28 },
-  ];
+  let data: { month: string; count: number }[];
+
+  async function getData(id: number) {
+    const res = await fetch(
+      "/details" + "?" + new URLSearchParams({ id: id.toString() })
+    );
+    data = await res.json();
+  }
 
   onMount(async () => {
     Chart.register(
@@ -41,6 +36,8 @@
       Title,
       Tooltip
     );
+
+    await getData(params.id);
 
     new Chart(chartCanvas.getContext("2d"), {
       type: "line",

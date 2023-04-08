@@ -17,12 +17,15 @@
     "/": wrap({
       asyncComponent: () => import("./pages/Home.svelte"),
     }),
-    "/details": wrap({
+    "/details/:id": wrap({
       asyncComponent: () => import("./pages/Details.svelte"),
       conditions: [() => $user !== null],
     }),
     "/login": wrap({
       asyncComponent: () => import("./pages/Login.svelte"),
+    }),
+    "/register": wrap({
+      asyncComponent: () => import("./pages/Register.svelte"),
     }),
   };
 
