@@ -16,7 +16,7 @@
   }
 </script>
 
-<header class="fixed top-0 left-0 bg-white shadow-sm w-full">
+<header class="z-10 fixed top-0 left-0 bg-white shadow-sm w-full">
   <nav class="navbar max-w-[1440px] mx-auto">
     <div class="navbar-start">
       <svg

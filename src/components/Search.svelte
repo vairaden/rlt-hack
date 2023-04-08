@@ -16,17 +16,12 @@
   }
 </script>
 
-{#if inputError}
-  <span class="ml-16 text-error">
-    {inputError}
-  </span>
-{/if}
 <form
   on:submit|preventDefault={handleSubmit}
-  class="flex flex-col items-center w-[80vw]"
+  class="flex flex-col items-center w-[80%] mx-auto"
 >
   <div
-    class="w-full text-textGrey bg-white form-control border rounded-lg flex flex-row items-center"
+    class="relative w-full text-textGrey bg-white form-control border rounded-lg flex flex-row items-center"
   >
     <label for="query" class="mx-4">
       <svg
@@ -54,6 +49,11 @@
         />
       </svg>
     </label>
+    {#if inputError}
+      <span class="absolute -top-6 left-14 text-error">
+        {inputError}
+      </span>
+    {/if}
     <input
       id="query"
       type="text"

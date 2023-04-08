@@ -42,16 +42,17 @@
 
 {#if ready}
   <Header />
-  <div class="pt-16 min-h-screen flex flex-col justify-between">
-    <main class="p-4 max-w-[1440px] mx-auto">
-      <Router {routes} on:conditionsFailed={conditionsFailed} />
-    </main>
-    <Footer />
-  </div>
+  <main class="pt-16 p-4 max-w-[1440px]">
+    <Router {routes} on:conditionsFailed={conditionsFailed} />
+  </main>
+  <Footer />
 {/if}
 
 <style>
   :global(html) {
     font-family: "Exo 2", sans-serif;
+  }
+  main {
+    height: max(1080px, 100vh - 4rem);
   }
 </style>

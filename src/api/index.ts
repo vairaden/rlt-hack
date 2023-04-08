@@ -2,7 +2,7 @@ import axios from "axios";
 import type { Details } from "../types";
 
 const api = axios.create({
-  baseURL: import.meta.env.DEV ? "http://94.45.223.241:46877" : "",
+  baseURL: "http://94.45.223.241:46877",
 });
 
 export async function login(username: string, password: string) {
