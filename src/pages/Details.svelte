@@ -104,8 +104,13 @@
     </div>
     <ChartCard
       className="col-span-3 col-start-1"
-      data={data.contracts}
-      title="Количество сделок"
+      data={data.contracts_customer}
+      title="Количество сделок заказчик"
+    />
+    <ChartCard
+      className="col-span-3"
+      data={data.contracts_supplier}
+      title="Количество сделок производитель"
     />
     <ChartCard
       className="col-span-3"

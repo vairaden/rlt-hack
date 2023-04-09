@@ -21,6 +21,10 @@
       asyncComponent: () => import("./pages/Details.svelte"),
       // conditions: [() => $user !== null],
     }),
+    "/product/:id": wrap({
+      asyncComponent: () => import("./pages/Product.svelte"),
+      // conditions: [() => $user !== null],
+    }),
     "/login": wrap({
       asyncComponent: () => import("./pages/Login.svelte"),
     }),
@@ -45,7 +49,7 @@
   <main class="pt-16 p-4 max-w-[1440px]">
     <Router {routes} on:conditionsFailed={conditionsFailed} />
   </main>
-  <Footer />
+  <!-- <Footer /> -->
 {/if}
 
 <style>

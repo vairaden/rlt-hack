@@ -18,7 +18,7 @@
 
 <form
   on:submit|preventDefault={handleSubmit}
-  class="flex flex-col items-center w-[80%] mx-auto"
+  class="flex flex-col items-center w-[70%] mx-auto"
 >
   <div
     class="relative w-full text-textGrey bg-white form-control border rounded-lg flex flex-row items-center"
@@ -114,9 +114,9 @@
     </svg>
     <span class="text-white mt-5"> Найти контрагента </span>
   </button>
-  <img
+  <!-- <img
     class="absolute -translate-x-[3%] -translate-y-[10%] -z-10"
     src="search-effect.png"
     alt="Search effect"
-  />
+  /> -->
 </form>

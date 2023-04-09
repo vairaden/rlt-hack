@@ -1,8 +1,9 @@
 <script>
+  import ProductList from "../components/ProductList.svelte";
   import Search from "../components/Search.svelte";
 </script>
 
-<div class="w-full absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-full">
   <h1 class="text-[56px] text-center">Детальный поиск контрагентов</h1>
   <p class="text-[#5F6166] max-w-[750px] text-center mx-auto mb-8">
     Сервис для поиска релеватных российских компаний. Помогает оценить риски,
@@ -11,4 +12,5 @@
     полная аналитика.
   </p>
   <Search />
+  <ProductList />
 </div>
